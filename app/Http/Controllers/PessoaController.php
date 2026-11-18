@@ -7,7 +7,7 @@ class PessoaController extends Controller
     // LISTAR: busca 10 pessoas por página, em ordem alfabética
     public function index()
     {
-        $pessoas = Pessoa::orderBy('nome')->paginate(10);
+        $pessoas = Pessoa::orderBy('name')->paginate(10);
         return view('pessoas.index', compact('pessoas'));
     }
     // CRIAR (1/2): mostra o formulário vazio
@@ -19,7 +19,7 @@ class PessoaController extends Controller
     public function store(PessoaRequest $request)
     {
         // safe()->only() pega apenas os campos que escolhemos, já validados
-        Pessoa::create($request->safe()->only(['nome']));
+        Pessoa::create($request->safe()->only(['name']));
         return redirect()->route('pessoas.index')
             ->with('sucesso', 'Pessoa cadastrada com sucesso!');
     }
@@ -31,7 +31,7 @@ class PessoaController extends Controller
     // EDITAR (2/2): atualiza o registro
     public function update(PessoaRequest $request, Pessoa $pessoa)
     {
-        $pessoa->update($request->safe()->only(['nome']));
+        $pessoa->update($request->safe()->only(['name']));
         return redirect()->route('pessoas.index')
             ->with('sucesso', 'Pessoa atualizada com sucesso!');
     }

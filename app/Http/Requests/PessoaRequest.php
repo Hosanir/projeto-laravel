@@ -12,15 +12,15 @@ class PessoaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
         ];
     }
     // Mensagens em português
     public function messages(): array
     {
         return [
-            'nome.required' => 'Informe o nome.',
-            'nome.max' => 'O nome pode ter no máximo 255 caracteres.',
+            'name.required' => 'Informe o nome.',
+            'name.max' => 'O nome pode ter no máximo 255 caracteres.',
         ];
     }
 }
