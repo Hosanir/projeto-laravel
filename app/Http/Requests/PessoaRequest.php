@@ -13,7 +13,7 @@ class PessoaRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-        ];
+            'foto' => ['nullable', 'image', 'max:2048'],
     }
     // Mensagens em português
     public function messages(): array
@@ -21,6 +21,8 @@ class PessoaRequest extends FormRequest
         return [
             'name.required' => 'Informe o nome.',
             'name.max' => 'O nome pode ter no máximo 255 caracteres.',
+            'foto.image' => 'O arquivo precisa ser uma imagem (jpg, png, webp...).',
+            'foto.max' => 'A foto pode ter no máximo 2 MB.',
         ];
     }
 }
